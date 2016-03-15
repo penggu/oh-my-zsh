@@ -19,6 +19,8 @@ then
     colorls -G -d . &>/dev/null 2>&1 && alias ls='colorls -G'
   else
     ls --color -d . &>/dev/null 2>&1 && alias ls='ls --color=tty' || alias ls='ls -G'
+    # On Darwin (Mac OS X), if gls is installed, we still try to use it
+    gls --color -d . &>/dev/null 2>&1 && alias ls='gls -F --color=tty'
   fi
 fi
 
